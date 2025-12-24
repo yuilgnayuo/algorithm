@@ -99,7 +99,7 @@ public class P54_SpiralMatrix {
                 }
                 bottom--;
             }
-            // 边界条件：只有一行的时候
+            // 边界条件：只有一列的时候
             if (left <= right) {
                 // bottom -> top
                 for (int i = bottom; i >= top; i--) {
