@@ -27,10 +27,12 @@ public class MonotonicStack {
             }
             compute();
             for (int i = 0; i < n; i++) {
-                String res = ans[i][0] + " " + ans[i][1];
-                out.println(res);
+                out.println(ans[i][0] + " " + ans[i][1]);
             }
         }
+        out.flush();
+        out.close();
+        br.close();
     }
 
     private static void compute() {
