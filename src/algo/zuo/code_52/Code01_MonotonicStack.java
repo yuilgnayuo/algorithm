@@ -1,18 +1,13 @@
-package problems.nowcoder;
+package algo.zuo.code_52;
 
 import java.io.*;
 
-public class MonotonicStack {
+public class Code01_MonotonicStack {
 
     public static int MAXN = 1000001;
-
     public static int[] arr = new int[MAXN];
-
     public static int[] stack = new int[MAXN];
-//    public static Stack stack = new Stack();
-
     public static int[][] ans = new int[MAXN][2];
-
     public static int n, r;
 
     public static void main(String[] args) throws IOException {
@@ -61,6 +56,5 @@ public class MonotonicStack {
                 ans[i][1] = ans[ans[i][1]][1];
             }
         }
-
     }
 }
