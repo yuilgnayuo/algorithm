@@ -33,7 +33,7 @@ public class Code02_DesignBitset {
                     zero--;
                 }
             } else {
-                // 反轉之後所有位置變為：0-》1，1=》0
+                // 記住：反轉並不是正真的反轉，而是紀錄了狀態即可。
                 // 反轉之後：0:存在，1:不存在
                 if ((set[idx] & jud) != 0) {
                     one++;
@@ -58,7 +58,7 @@ public class Code02_DesignBitset {
                     zero++;
                 }
             } else {
-                // 反轉之後所有位置變為：0-》1，1=》0
+                // 記住：反轉並不是正真的反轉，而是紀錄了狀態即可。
                 // 反轉之後：0:存在，1:不存在
                 if ((set[idx] & jud) == 0) {
                     one--;
