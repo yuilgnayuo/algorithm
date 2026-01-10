@@ -70,11 +70,12 @@ public class Code01_LevelOrderTraversal {
                 // 一次遍历一行的数据
                 int size = r - l; // 遍历多长，提前计算好，因为每次遍历加入数据的时候都会更改r和l
                 List<Integer> levAns = new ArrayList<>();
-                for (int i = l; i < r ; i++) {
-                    levAns.add(queue[i].val);
-                }
+//                for (int i = l; i < r ; i++) {
+//                    levAns.add(queue[i].val);
+//                }
                 for (int i = 0; i < size; i++) {
                     TreeNode cur = queue[l++];
+                    levAns.add(cur.val);
                     if (cur.left != null) {
                         queue[r++] = cur.left;
                     }
