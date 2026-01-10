@@ -25,7 +25,8 @@ public class Code01_LevelOrderTraversal {
         }
     }
 
-    public List<List<Integer>> levelOrder(TreeNode root) {
+    // 不是最优解
+    public List<List<Integer>> levelOrder1(TreeNode root) {
         List<List<Integer>> ans = new ArrayList<>();
         if (root != null) {
             Queue<TreeNode> queue = new LinkedList<>();
@@ -48,6 +49,39 @@ public class Code01_LevelOrderTraversal {
                     queue.add(cur.right);
                     levs.put(cur.right, lev + 1);
                 }
+            }
+        }
+        return ans;
+    }
+
+    // 如果测试数据量变大了就修改这个值
+    public static int MAXN = 2001;
+    // 使用数组代替队列结构
+    public static TreeNode[] queue = new TreeNode[MAXN];
+
+    public static int l, r;
+
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> ans = new ArrayList<>();
+        if (root != null) {
+            l = r = 0;
+            queue[r++] = root;
+            while (l < r) {
+                // 一次遍历一行的数据
+                int size = r - l; // 遍历多长，提前计算好，因为每次遍历加入数据的时候都会更改r和l
+                List<Integer> levAns = new ArrayList<>();
+                for (int i = 0; i < size; i++) {
+                    TreeNode cur = queue[l++];
+                    levAns.add(cur.val);
+                    if (cur.left != null) {
+                        queue[r++] = cur.left;
+                    }
+                    if (cur.right != null) {
+                        queue[r++] = cur.right;
+                    }
+                }
+                ans.add(levAns);
+
             }
         }
         return ans;
