@@ -16,6 +16,8 @@ public class Code08_CompletenessOfBinaryTree {
 
     public static int l, r;
 
+    // 完全二叉树：非叶子节点一定是满树
+    // 叶子节点，并且它是最后一个节点的情况下：左叶子一定不能为空，右可以为空
     public static boolean isCompleteTree(TreeNode h) {
         if (h == null) {
             return true;
@@ -25,8 +27,9 @@ public class Code08_CompletenessOfBinaryTree {
         boolean leaf = false;
         while (l < r) {
             h = queue[l++];
+            // 第一个条件：如果左为空，右不为空，那么一定不是
             if ((h.left == null && h.right != null)
-                    || (leaf && h.left != null || h.right != null)) {
+                    || (leaf && (h.left != null || h.right != null))) {
                 return false;
             }
             if (h.left != null) {
